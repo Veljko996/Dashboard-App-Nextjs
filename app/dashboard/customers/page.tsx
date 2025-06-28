@@ -1,6 +1,7 @@
 import { fetchCustomers, fetchFilteredCustomers } from "@/app/lib/data";
 import CustomersTable from "@/app/ui/customers/table";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
@@ -12,6 +13,9 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     notFound();
   }
 
-  console.log(customers);
-  return <CustomersTable customers={customers} />;
+  return (
+    <Suspense>
+      <CustomersTable customers={customers} />
+    </Suspense>
+  );
 }
