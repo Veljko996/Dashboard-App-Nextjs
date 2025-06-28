@@ -14,8 +14,9 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   }
 
   return (
-    <Suspense>
-      <CustomersTable customers={customers} />
-    </Suspense>
+    // <Suspense>
+    //   <CustomersTable customers={customers} />
+    // </Suspense>
+    <div>suspense customer</div>
   );
 }
